@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper | slide</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            
+        </div>
+        
+        <!-- <nav>
+            <a href="#section1">Section 1</a>
+            <a href="#section2">Section 2</a>
+            <a href="#section3">Section 3</a>
+        </nav> -->
+    </header>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page-1" id="page-1">
+                <div class="header">
+                    <p id="title">이끌림</p>
+                </div>
+                <div class="slide">
+                    이끌림은 사람과 사람 사이을 이어주는 언애 플랫폼 회사입니다.
+                </div>
+                </div>
+            <div class="swiper-slide page-2" id="page-2">
+                <div class="slide">
+                    연애를 잘 하려면 몸과 마음이 건강해야합니다.
+                </div>
+            </div>
+            <div class="swiper-slide page-3" id="page-3">
+                <div class="slide">
+                    연애를 하고싶지만 못하는 경우 자기의 매력을 찾아야 합니다.
+                </div>
+            </div>
+        </div>
+        <div class="swiper-prev"></div>
+        <div class="swiper-next"></div>
+    </div>
+    <footer>
+        
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            speed: 500,
+            direction: 'vertical',
+            mousewheel: true,
+            slidesOffsetAfter: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            on: {
+                reachEnd: function () {
+                    swiper.mousewheel.disable(); // 마지막 슬라이드에 도달하면 스크롤 비활성화
+                },
+                fromEdge: function () {
+                    swiper.mousewheel.enable(); // 마지막 슬라이드에서 스크롤하면 다시 활성화
+                },
+            },
+        });
+
+        window.addEventListener('wheel', function (event) {
+            if (event.deltaY < 0) {
+                swiper.mousewheel.enable();
+            }
+        });
+    </script>
+</body>
+</html>
